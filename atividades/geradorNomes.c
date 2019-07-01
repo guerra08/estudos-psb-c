@@ -33,7 +33,7 @@ int main(){
                      };
 
     for(int i = 0; i<100; i++){
-        geraNomes(siglas, (i*5)+157);
+        geraNomes(siglas, time(NULL)+(i*5)+157);
     }
 
     return 0;
