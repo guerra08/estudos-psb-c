@@ -10,6 +10,7 @@ struct NODE{
 void countAndSum(struct NODE *node, int *count, int *sum);
 
 void countAndSum(struct NODE *node, int *count, int *sum){
+    if (node==NULL) return;
     (*count)++;
     int v = node->val;
     (*sum) += v;
