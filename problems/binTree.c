@@ -14,12 +14,8 @@ void countAndSum(struct NODE *node, int *count, int *sum){
     (*count)++;
     int v = node->val;
     (*sum) += v;
-    if(node->left != NULL){
-        countAndSum(node->left, count, sum);
-    }
-    if(node->right != NULL){
-        countAndSum(node->right, count, sum);
-    }
+    countAndSum(node->left, count, sum);
+    countAndSum(node->right, count, sum);
 }
 
 int main(){
@@ -34,7 +30,13 @@ int main(){
     first->right=NULL;
     first->val=2;
 
+    struct NODE* second = (struct NODE *)malloc(sizeof(struct NODE));
+    second->left=NULL;
+    second->right=NULL;
+    second->val=13;
+
     root->left = first;
+    root->right = second;
 
     int c = 0;
     int s = 0;
@@ -46,6 +48,7 @@ int main(){
 
     free(root); 
     free(first); 
+    free(second); 
 
     return 0;
 }
