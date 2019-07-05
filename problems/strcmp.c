@@ -30,7 +30,7 @@ int cmp(char *c1, char *c2){
 
 int main(){
 
-    char c1[] = "bruno";
+    char c1[] = "Bruno";
     char c2[] = "bruno";
 
     printf("%d",cmp(c1,c2));

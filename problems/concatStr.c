@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 char * strConcat(char *a, char *b);
@@ -6,23 +7,25 @@ char * strConcat(char *a, char *b){
 
     int sizeA = strlen(a);
     int sizeB = strlen(b);
-    int size = sizeA+sizeB;
-    char *c[size];
+    int size = sizeA+sizeB+1;
+    char *c = malloc(size * (sizeof(char)));
     int aux = 0;
 
     for(int i = 0; i < sizeA; i++){
-        (*c)[i] = *a;
+        c[i] = *a;
         a++;
         aux++;
     }
 
     for(int i = 0; i < sizeB; i++){
-        (*c)[aux] = *b;
+        c[aux] = *b;
         b++;
         aux++;
     }
 
-    return *c;
+    c[aux] = '\0';
+
+    return c;
 } 
 int main(){
 
