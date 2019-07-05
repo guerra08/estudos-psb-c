@@ -7,8 +7,34 @@ struct NODE{
     struct NODE *right;
 }NODE;
 
-void countAndSum(struct NODE *node, int *count, int *sum);
+void preOrder(struct NODE *r);
+void preOrder(struct NODE *r){
+    if(r != NULL){
+        preOrder(r->left);
+        printf("%d - ",r->val);
+        preOrder(r->right);
+    }
+}
 
+void postOrder(struct NODE *r);
+void postOrder(struct NODE *r){
+    if(r != NULL){
+        preOrder(r->left);
+        preOrder(r->right);
+        printf("%d - ",r->val);
+    }
+}
+
+void inOrder(struct NODE *r);
+void inOrder(struct NODE *r){
+    if(r != NULL){
+        printf("%d - ",r->val);
+        preOrder(r->left);
+        preOrder(r->right);
+    }
+}
+
+void countAndSum(struct NODE *node, int *count, int *sum);
 void countAndSum(struct NODE *node, int *count, int *sum){
     if (node==NULL) return;
     (*count)++;
@@ -20,17 +46,17 @@ void countAndSum(struct NODE *node, int *count, int *sum){
 
 int main(){
 
-    struct NODE* root = (struct NODE *)malloc(sizeof(struct NODE));
+    struct NODE* root = malloc(sizeof(struct NODE));
     root->left=NULL;
     root->right=NULL;
     root->val=5;
 
-    struct NODE* first = (struct NODE *)malloc(sizeof(struct NODE));
+    struct NODE* first = malloc(sizeof(struct NODE));
     first->left=NULL;
     first->right=NULL;
     first->val=2;
 
-    struct NODE* second = (struct NODE *)malloc(sizeof(struct NODE));
+    struct NODE* second = malloc(sizeof(struct NODE));
     second->left=NULL;
     second->right=NULL;
     second->val=13;
@@ -45,6 +71,12 @@ int main(){
 
     printf("%d\n", c);
     printf("%d\n", s);
+
+    preOrder(root);
+    printf("\n");
+    postOrder(root);
+    printf("\n");
+    inOrder(root);
 
     free(root); 
     free(first); 
