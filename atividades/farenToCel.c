@@ -1,3 +1,4 @@
+//Converte uma temperatura em Farenheit para Celsius
 #include <stdio.h>
 
 void farenToCel(float *faren);

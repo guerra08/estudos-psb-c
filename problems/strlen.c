@@ -3,14 +3,15 @@
 
 int strlen(char *str);
 int strlen(char *str){
-    if(str == NULL){
+    char *auxPointer = str;
+    if(auxPointer == NULL){
         return 0;
     }
 
     int size = 0;
-    while(*str != '\0'){
+    while(*auxPointer != '\0'){
         size++;
-        str++;
+        auxPointer++;
     }
     return size;
 }
