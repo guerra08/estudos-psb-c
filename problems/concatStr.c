@@ -5,6 +5,8 @@
 char * strConcat(char *a, char *b);
 char * strConcat(char *a, char *b){
 
+    char *auxA = a;
+    char *auxB = b;
     int sizeA = strlen(a);
     int sizeB = strlen(b);
     int size = sizeA+sizeB+1;
@@ -12,14 +14,14 @@ char * strConcat(char *a, char *b){
     int aux = 0;
 
     for(int i = 0; i < sizeA; i++){
-        c[i] = *a;
-        a++;
+        c[i] = *auxA;
+        auxA++;
         aux++;
     }
 
     for(int i = 0; i < sizeB; i++){
-        c[aux] = *b;
-        b++;
+        c[aux] = *auxB;
+        auxB++;
         aux++;
     }
 

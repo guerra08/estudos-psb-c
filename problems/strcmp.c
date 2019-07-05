@@ -4,22 +4,24 @@
 int cmp(char *c1, char *c2);
 
 int cmp(char *c1, char *c2){
-    while(*c1 != '\0' && *c1 != '\0'){
-        if(*c1 != *c2){ //Different
-            if(*c1 < *c2){
+    char *aux1 = c1;
+    char *aux2 = c2;
+    while(*aux1 != '\0' && *aux2 != '\0'){
+        if(*aux1 != *aux2){ //Different
+            if(*aux1 < *aux2){
                 return -1;
             }
-            if(*c1 > *c2){
+            if(*aux1 >= *aux2){
                 return 1;
             }
         }
-        c1++; c2++;
+        aux1++;aux2++;
     }
-    if(*c1 != *c2){
-        if(*c1 < *c2){
+    if(*aux1 != *aux2){
+        if(*aux1 < *aux2){
             return -1;
         }
-        if(*c1 > *c2){
+        if(*aux1 >= *aux2){
             return 1;
         }
     }
@@ -30,7 +32,7 @@ int cmp(char *c1, char *c2){
 
 int main(){
 
-    char c1[] = "Bruno";
+    char c1[] = "brunooo";
     char c2[] = "bruno";
 
     printf("%d",cmp(c1,c2));
